@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Test Site</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='map'></div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNvLWFtZXJpY2FuLWhlcml0YWdlcHJvamVjdCIsImEiOiJja2dxcXBnbnowOHY3MnNwMjlsaXlqNzl3In0.HlbzwWM9DNx4ElqWTw7LNg';
+    var map2 = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/franco-american-heritageproject/ckgqr7azj0rxs19qpt3yyncbx', // replace this with your style URL
+      center: [ -70.82872, 45.24790 ], // find location info at -->  https://demos.mapbox.com/location-helper/
+      zoom: 6.5
+    });
+
+    map2.on('click', function(e) {
+  var features = map2.queryRenderedFeatures(e.point, {
+    layers: ['WorshipSites_Quebec'] // replace this with the name of the layer
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.NOM
+ + '</h3><p>' + feature.properties.VALEUR_PATRIMONIALE + '</p>')
+    .addTo(map2);
+});
+    </script>
+  </body>
+</html>
