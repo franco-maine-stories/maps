@@ -640,7 +640,7 @@ var config = {
         //////////Chapter 12/////////////////////
         {
             id: 'c12-mills-statewide-2-2', //every chapter must have a unique id name
-            image: 'images/image-12.jpg',
+            image: 'images/image-12.png',
             title: 'Mills of the 2000s',
             description:'While early lumbering was almost exclusively done for sawlogs, the 1900s saw a diversification of demand. Pulpwood caused the greatest shift in terms of volume, though many local sawmills still meet demand for dimension-lumber today. Recent years have also seen a demand for biomass production. Large-scale pulp mills, although not extinct, have been in decline since the early 2000s.',
             location: {  /* go to 'https://demos.mapbox.com/location-helper/' to aquire location info'*/
